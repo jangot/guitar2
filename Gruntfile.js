@@ -2,6 +2,7 @@ module.exports = function(grunt) {
     var path = require('path');
 
     grunt.initConfig({
+        
         rootPath: path.resolve('.'),
         publicPath: '<%= rootPath %>/public',
         compilePath: '<%= rootPath %>/compile',

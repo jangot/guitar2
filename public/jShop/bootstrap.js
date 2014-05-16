@@ -4,7 +4,7 @@ define([
 
     'angularAMD',
 
-    'config'
+    'common/config'
 
 ], function(jShop, angularAMD) {
     angularAMD.bootstrap(jShop);

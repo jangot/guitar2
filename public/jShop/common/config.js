@@ -1,8 +1,8 @@
 define([
 
-    'jShop',
+    '../jShop',
 
-    'directives/menu/directive'
+    'common/directives/menu/directive'
 
 ], function(jShop) {
     "use strict";

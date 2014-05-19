@@ -1,8 +1,10 @@
 define([
 
-    'jShop'
+    'jShop',
 
-], function(jShop) {
+    'common/directives/menu/controller'
+
+], function(jShop, Controller) {
     "use strict";
 
     jShop.directive('jShopMenu', function() {
@@ -10,13 +12,7 @@ define([
             restrict: 'E',
             templateUrl: '/jShop/common/directives/menu/template.html',
             link: function(scope, element, attrs) {},
-            controller: function($scope){
-                $scope.items = [
-                    {
-
-                    }
-                ]
-            }
+            controller: Controller
         }
     });
 });

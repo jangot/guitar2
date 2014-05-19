@@ -1,7 +1,7 @@
 <div class="mainSize">
     <ul class="nav nav-tabs mainMenu">
-        <li ng-class="{active: (item == 3)}" ng-repeat="item in items">
-            <a href="#">TOoo</a>
+        <li ng-class="{active: (item.link == current)}" ng-repeat="item in items">
+            <a href="{{item.link}}">{{item.title}}</a>
         </li>
     </ul>
 </div>

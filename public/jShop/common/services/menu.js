@@ -10,12 +10,12 @@ define([
             $get: function() {
                 return [
                     {
-                        title: 'Test',
-                        link: 'common'
+                        title: 'Гитары',
+                        link: 'guitars'
                     },
                     {
-                        title: 'Test1',
-                        link: 'test1'
+                        title: 'Эффекты',
+                        link: 'fx'
                     }
                 ]
             }

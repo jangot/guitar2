@@ -23,6 +23,7 @@ define([
                 return part.charAt(0).toUpperCase() + part.slice(1);
             });
 
+            console.log(controllerParts.join(''))
             return controllerParts.join('');
         }
 
@@ -41,7 +42,9 @@ define([
                 };
 
             },
-            $get: function(){}
+            $get: function(){
+                return {}
+            }
         }
     });
 });

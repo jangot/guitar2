@@ -5,7 +5,7 @@ define([
 ], function(jShop){
     "use strict";
 
-    jShop.controller('CommonGuitars', function(){
+    jShop.controller('GuitarsIndex', function(){
         console.log('CommonGuitars')
     });
 });

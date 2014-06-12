@@ -10,8 +10,10 @@ define([
 
         var COMMON_RESOLVE = {};
 
-        function getResolve(params) {
-            return angular.extend(COMMON_RESOLVE, params.resolve);
+        function getResolve(resolve) {
+            resolve = resolve || {};
+
+            return angular.extend(COMMON_RESOLVE, resolve);
         }
 
         function getViewPath(viewParts) {
@@ -23,24 +25,23 @@ define([
                 return part.charAt(0).toUpperCase() + part.slice(1);
             });
 
-            console.log(controllerParts.join(''))
             return controllerParts.join('');
         }
 
         return {
             build: function(params) {
-                if (!params.view) {
-                    throw Error("View is not define.");
+                var newParams = {};
+                if (params.view) {
+                    var viewPathParts = params.view.split('/');
+                    newParams.templateUrl = getViewPath(viewPathParts) + '/template.html';
+                    newParams.controller = getControllerName(viewPathParts);
+
+                    delete params.view;
                 }
+                angular.extend(newParams, params);
+                newParams.resolve = getResolve(newParams.resolve);
 
-                var viewPathParts = params.view.split('/');
-
-                return {
-                    templateUrl: getViewPath(viewPathParts) + '/template.html',
-                    controller: getControllerName(viewPathParts),
-                    resolve: getResolve(params)
-                };
-
+                return newParams;
             },
             $get: function(){
                 return {}

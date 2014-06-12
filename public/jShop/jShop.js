@@ -2,7 +2,7 @@ define([
 
     'angular',
     'angularResource',
-    'angularRoute',
+    'uiRouter',
 
     'angularAMD',
 
@@ -11,6 +11,6 @@ define([
 
 ], function(angular) {
     return angular.module('jShop', [
-        'ngRoute',  'ui.bootstrap', 'ngResource'
+        'ui.router',  'ui.bootstrap', 'ngResource'
     ]);
 });

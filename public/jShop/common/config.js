@@ -3,47 +3,32 @@ define([
     '../jShop',
 
     'common/directives/menu/directive',
+    'common/directives/pageTitle/directive',
     'common/directives/breadcrumb/directive',
 
     'common/services/stateData',
     'common/services/routeConstructor',
     'common/services/menu',
 
-    'common/view/guitars/controller',
-    'common/view/fx/controller'
+    'common/view/fx/controller',
+    'common/view/body/controller'
 
 ], function(jShop) {
     "use strict";
-
-    jShop.config(function($locationProvider) {
+    jShop.config(function($locationProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/guitars');
 
         $locationProvider.html5Mode(true);
     });
-
-    jShop.config(function($routeProvider, routeConstructorProvider) {
-
-        $routeProvider.when(
-            '/guitars',
+    jShop.config(function($stateProvider, routeConstructorProvider) {
+        $stateProvider.state(
+            'body',
             routeConstructorProvider.build({
-                view: 'common/guitars',
-                resolve: {
-                    test: 'stateData'
-                }
+                abstract: true,
+                resolve: {},
+                view: 'common/body'
             })
         );
-
-        $routeProvider.when(
-            '/fx',
-            routeConstructorProvider.build({
-                view: 'common/fx'
-            })
-        );
-    });
-
-    jShop.run(function($rootScope, $routeParams) {
-        $rootScope.$on('$routeChangeSuccess', function() {
-            console.log(111, arguments)
-        });
     });
 
 });

@@ -10,15 +10,8 @@ define([
             restrict: 'E',
             templateUrl: '/jShop/common/directives/pageTitle/template.html',
             link: function(scope, element, attrs) {},
-            controller: function($scope, menu) {
-                function updateCurrent() {
-                    var path = $location.path();
-
-                    $scope.current = path.split('/')[1];
-                }
-
-                updateCurrent();
-                $scope.$on('$routeChangeSuccess', updateCurrent);
+            controller: function($scope, $state) {
+                $scope.title = $state.current.page.title
             }
         }
     });

@@ -1,1 +1,106 @@
-<div class="container">Главная</div>
+<div class="container">
+
+
+
+    <h1 class="htitle">Массивы </h1>
+
+
+
+
+
+
+
+    <div class="toc toc-full">
+        <ol>
+            <li>
+                <a href="/basic/array#sozdanie-i-izmenenie">Создание и изменение</a>
+            </li>
+            <li>
+                <a href="/basic/array#avto-dlina-length">Авто-длина length</a>
+            </li>
+            <li>
+                <a href="/basic/array#perebor-elementov">Перебор элементов</a>
+            </li>
+            <li>
+                <a href="/basic/array#ochered-stek">Очередь + стек</a>
+            </li>
+            <li>
+                <a href="/basic/array#drugie-metody">Другие методы</a>
+                <ol>
+                    <li>
+                        <a href="/basic/array#slice">slice</a>
+                    </li>
+                    <li>
+                        <a href="/basic/array#splice">splice</a>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+
+    </div>
+
+
+
+
+
+    <div class="author-info"><div class="author-info-data"></div></div>
+
+
+    <p>Javascript поддерживает два вида структуры "массив":</p>
+    <ol>
+        <li>Ассоциативный массив (хеш), где данные хранятся по произвольному ключу.<br>
+            <i>Об этом читайте в разделе <a href="/tutorial/object/intro">Объекты</a>.</i></li>
+        <li>Числовой массив <code>Array</code>, где данные хранятся по номерам.<br>
+            <i>Он описан в этой статье.<br>
+            </i></li>
+    </ol>
+    <p>Javascript - очень гибкий язык, поэтому технически в <code>Array</code> можно хранить произвольные ключи, как в <code>Object</code>. Но лучше использовать типы по назначению.</p>
+    <p>Для хранения данных по номеру предназначен тип <code>Array</code>.</p>
+    <div id="highlighter_124415" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_124415_clipboard" type="application/x-shockwave-flash" title="копировать в буфер" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_124415" menu="false" src="/modules/syntaxhighlighter/sh/scripts/clipboard.swf"></div><a href="#viewSource" title="показать чистый исходник в новом окне" class="item viewSource" style="width: 16px; height: 16px;">показать чистый исходник в новом окне</a><a href="#noList" title="Скрыть/показать номера строк" class="item noList" style="width: 16px; height: 16px;">Скрыть/показать номера строк</a><a href="#printSource" title="печать кода с сохранением подсветки" class="item printSource" style="width: 16px; height: 16px;">печать кода с сохранением подсветки</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">var</code> <code class="plain">arr = </code><code class="keyword">new</code> <code class="plain">Array()</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">arr.test = 5</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="plain">arr[1] = </code><code class="string">"blabla"</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="plain">...</code></td></tr></tbody></table></div></div></div><p>
+    В типе <code>Array</code> есть специальные методы, ориентированные именно на работу с числовыми ключами.</p>
+    <h2 id="sozdanie-i-izmenenie" class="header-link"><a href="#sozdanie-i-izmenenie">Создание и изменение</a></h2>
+    <p>Есть два эквивалентных способа создания массива:</p>
+    <div id="highlighter_481841" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="keyword">var</code> <code class="plain">a = </code><code class="keyword">new</code> <code class="plain">Array()</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="keyword">var</code> <code class="plain">a = []</code></td></tr></tbody></table></div></div></div><p>
+    Или, сразу со  значениями</p>
+    <div id="highlighter_455480" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="keyword">var</code> <code class="plain">a = </code><code class="keyword">new</code> <code class="plain">Array(</code><code class="string">"a"</code><code class="plain">, 1, </code><code class="keyword">true</code><code class="plain">)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="keyword">var</code> <code class="plain">a = [</code><code class="string">"a"</code><code class="plain">, 1, </code><code class="keyword">true</code><code class="plain">]</code></td></tr></tbody></table></div></div></div><p>
+    Эти способы работают одинаково, кроме объявления вида <code>new Array(10)</code>, когда у конструктора есть единственный аргумент-число. </p>
+    <p>Такое объявление создаст пустой массив (все элементы undefined) длиной <code>10</code>. По возможности, не используйте <code>new Array</code>.</p>
+    <p>Отсчет элементов начинается с нуля:</p>
+    <div id="highlighter_26338" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">alert(a[0])&nbsp;&nbsp; </code><code class="comments">// =&gt; "a"</code></td></tr></tbody></table></div></div></div><p>
+    Массив хранит данные по численным ключам, но внутри он использует точно такой же хэш (ту же структуру данных), как и обычный объект, поэтому можно сделать так:</p>
+    <div id="highlighter_376975" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="keyword">var</code> <code class="plain">a = []</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">a[1] = 1</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">a[999999] = 2</code></td></tr></tbody></table></div></div></div><p>
+    и массив a будет занимать память, нужную для хранения этих двух соответствий, а не займет длинный непрерывный кусок памяти, как это произошло бы в языке С.</p>
+    <h2 id="avto-dlina-length" class="header-link"><a href="#avto-dlina-length">Авто-длина length</a></h2>
+    <p>У каждого массива есть свойство <code>length</code>, которое автоматом меняется при каждом обновлении массива.  <b>Длина </b>массива - это <b>не количество элементов, </b>а максимальный целый ключ + 1:</p>
+    <div id="highlighter_350628" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">alert(a.length) </code><code class="comments">// всего 2 элемента, но выведет 1000000</code></td></tr></tbody></table></div></div></div><p>
+    Добавлять новый элемент можно эквивалентными вызовами</p>
+    <div id="highlighter_919589" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">a[a.length] = </code><code class="string">"new element"</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">a.push(</code><code class="string">"new element"</code><code class="plain">)</code></td></tr></tbody></table></div></div></div><h2 id="perebor-elementov" class="header-link"><a href="#perebor-elementov">Перебор элементов</a></h2>
+    <p>Перебор элементов обычно (когда индексы непрерывные) осуществляется простым циклом:</p>
+    <div id="highlighter_696046" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_696046_clipboard" type="application/x-shockwave-flash" title="копировать в буфер" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_696046" menu="false" src="/modules/syntaxhighlighter/sh/scripts/clipboard.swf"></div><a href="#viewSource" title="показать чистый исходник в новом окне" class="item viewSource" style="width: 16px; height: 16px;">показать чистый исходник в новом окне</a><a href="#noList" title="Скрыть/показать номера строк" class="item noList" style="width: 16px; height: 16px;">Скрыть/показать номера строк</a><a href="#printSource" title="печать кода с сохранением подсветки" class="item printSource" style="width: 16px; height: 16px;">печать кода с сохранением подсветки</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">var</code> <code class="plain">arr = [ </code><code class="string">"array"</code><code class="plain">, </code><code class="string">"elements"</code><code class="plain">, </code><code class="string">"here"</code> <code class="plain">]</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="keyword">for</code><code class="plain">(</code><code class="keyword">var</code> <code class="plain">i=0; i&lt;arr.length; i++) {</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">... сделать что-то с arr[i] ...</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p>
+    Если индексы - с разрывами, то перебор осуществляется так же, как в объектах:</p>
+    <div id="highlighter_85251" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_85251_clipboard" type="application/x-shockwave-flash" title="копировать в буфер" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_85251" menu="false" src="/modules/syntaxhighlighter/sh/scripts/clipboard.swf"></div><a href="#viewSource" title="показать чистый исходник в новом окне" class="item viewSource" style="width: 16px; height: 16px;">показать чистый исходник в новом окне</a><a href="#noList" title="Скрыть/показать номера строк" class="item noList" style="width: 16px; height: 16px;">Скрыть/показать номера строк</a><a href="#printSource" title="печать кода с сохранением подсветки" class="item printSource" style="width: 16px; height: 16px;">печать кода с сохранением подсветки</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">var</code> <code class="plain">arr = []</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">arr[1] = 123</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="plain">arr[9999] = 456</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="keyword">for</code><code class="plain">(</code><code class="keyword">var</code> <code class="plain">i </code><code class="keyword">in</code> <code class="plain">arr) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>6</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(!arr.hasOwnProperty(i)) </code><code class="keyword">continue</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>7</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">... сделать что-то с arr[i] ...</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>8</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><h2 id="ochered-stek" class="header-link"><a href="#ochered-stek">Очередь + стек</a></h2>
+    <p>В массиве есть всё необходимое, чтобы работать с ним как с очередью или со стеком, или и с тем и другим одновременно.</p>
+    <p>Методы <code>push</code> и <code>pop</code> добавляют или вынимают значение с конца массива</p>
+    <div id="highlighter_982953" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_982953_clipboard" type="application/x-shockwave-flash" title="копировать в буфер" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_982953" menu="false" src="/modules/syntaxhighlighter/sh/scripts/clipboard.swf"></div><a href="#viewSource" title="показать чистый исходник в новом окне" class="item viewSource" style="width: 16px; height: 16px;">показать чистый исходник в новом окне</a><a href="#noList" title="Скрыть/показать номера строк" class="item noList" style="width: 16px; height: 16px;">Скрыть/показать номера строк</a><a href="#printSource" title="печать кода с сохранением подсветки" class="item printSource" style="width: 16px; height: 16px;">печать кода с сохранением подсветки</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">var</code> <code class="plain">arr = [3,5,7]</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">arr.push(9)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="keyword">var</code> <code class="plain">last = arr.pop()&nbsp;&nbsp;&nbsp; </code><code class="comments">//= 9</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="keyword">var</code> <code class="plain">last = arr.pop()&nbsp;&nbsp; </code><code class="comments">// = 7</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="plain">alert(arr.length)&nbsp;&nbsp; </code><code class="comments">// = 2</code></td></tr></tbody></table></div></div></div><p>
+    Методы <code>shift</code>/<code>unshift</code> делают то же самое, с начала массива.</p>
+    <div id="highlighter_298692" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_298692_clipboard" type="application/x-shockwave-flash" title="копировать в буфер" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_298692" menu="false" src="/modules/syntaxhighlighter/sh/scripts/clipboard.swf"></div><a href="#viewSource" title="показать чистый исходник в новом окне" class="item viewSource" style="width: 16px; height: 16px;">показать чистый исходник в новом окне</a><a href="#noList" title="Скрыть/показать номера строк" class="item noList" style="width: 16px; height: 16px;">Скрыть/показать номера строк</a><a href="#printSource" title="печать кода с сохранением подсветки" class="item printSource" style="width: 16px; height: 16px;">печать кода с сохранением подсветки</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">var</code> <code class="plain">arr = [4,6,8]</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">arr.unshift(2) </code><code class="comments">// arr = [2,4,6,8]</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="plain">arr.unshift(0) </code><code class="comments">// arr = [0,2,4,6,8]</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="keyword">var</code> <code class="plain">last = arr.shift() </code><code class="comments">// last = 0, arr = [2,4,6,8]</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="plain">arr.shift()&nbsp; </code><code class="comments">// arr = [4,6,8]</code></td></tr></tbody></table></div></div></div><p>
+    <code><code>shift/</code>unshift</code> обычно приводят к перенумерации всего массива. <code>shift</code> сдвигает все элементы на единицу влево, а unshift - вправо. Поэтому на больших массивах  эти методы работают медленнее, чем <code><code>push</code>/pop.</code></p>
+    <p><img src="http://blog.client-side?.ru/wp-content/uploads/2007/09/array_deque.png" alt="Массив" title="Массив"></p>
+    <h2 id="drugie-metody" class="header-link"><a href="#drugie-metody">Другие методы</a></h2>
+    <h3 id="slice" class="header-link"><a href="#slice">slice</a></h3>
+    <div id="highlighter_250979" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">slice(begin[, end])</code></td></tr></tbody></table></div></div></div><p>
+    Возвращает подмассив с индексами <code>begin…end</code>.</p>
+    <h3 id="splice" class="header-link"><a href="#splice">splice</a></h3>
+    <div id="highlighter_178016" class="syntaxhighlighter nogutter  "><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">splice(index, deleteCount[, element1,…, elementN])</code></td></tr></tbody></table></div></div></div><p>
+    Удалить <code>deleteCount</code> элементов, начиная с index, и вставить на их место <code>element1…elementN</code></p>
+    <p>Есть и еще много методов:</p>
+    <ul>
+        <li><code>join</code></li>
+        <li><code>reverse</code></li>
+        <li>...</li>
+    </ul>
+    <p> О них можно почитать на английском, например, в <a href="http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Objects:Array" class="liexternal">http://developer.mozilla.org/en/..Array</a></p>
+
+
+
+</div>

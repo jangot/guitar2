@@ -26,15 +26,15 @@ module.exports = function(builder) {
         .addConfig('stylus', 'compile', {
             files: {
                 '<%= compilePath %>/all.css': [
-                    '<%= publicPath %>/jShop/styles/start.styl',
+                    '<%= publicPath %>/jShop/common/styles/start.styl',
                     '<%= publicPath %>/jShop/**/style.styl',
-                    '<%= publicPath %>/jShop/styles/end.styl'
+                    '<%= publicPath %>/jShop/common/styles/end.styl'
                 ]
             }
         })
         .addConfig('watch', 'stylus', {
             files: '<%= publicPath %>/**/*.styl',
-            tasks: 'stylus'
+            tasks: 'stylus:compile'
         })
 
         .createTask(TASK_NAME, ['stylus:compile'])

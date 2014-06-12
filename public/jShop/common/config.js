@@ -7,18 +7,21 @@ define([
     'common/directives/menu/directive',
     'common/directives/pageTitle/directive',
     'common/directives/breadcrumb/directive',
+    'common/directives/footer/directive',
 
     'common/services/stateData',
     'common/services/routeConstructor',
     'common/services/menu',
 
     'common/view/body/controller',
-    'common/view/index/controller'
+    'common/view/index/controller',
+    'common/view/404/controller'
+
 
 ], function(jShop, angular) {
     "use strict";
     jShop.config(function($locationProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/guitars');
+        $urlRouterProvider.otherwise('/404');
 
         $locationProvider.html5Mode(true);
     });
@@ -39,6 +42,17 @@ define([
                 view: 'common/index',
                 page: {
                     title: 'Главная страница'
+                }
+            })
+        );
+
+        $stateProvider.state(
+            'body.404',
+            routeConstructorProvider.build({
+                url: '/404',
+                view: 'common/404',
+                page: {
+                    title: 'Страница не найдена'
                 }
             })
         );

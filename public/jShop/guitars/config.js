@@ -15,6 +15,10 @@ define([
                 view: 'guitars/index',
                 page: {
                     title: 'Гитары'
+                },
+                menu: {
+                    state: 'body.guitars',
+                    title: 'Гитары'
                 }
             })
         );

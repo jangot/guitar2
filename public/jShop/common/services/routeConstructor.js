@@ -9,6 +9,7 @@ define([
     jShop.provider('routeConstructor', function(){
 
         var COMMON_RESOLVE = {};
+        var menu = [];
 
         function getResolve(resolve) {
             resolve = resolve || {};
@@ -38,13 +39,23 @@ define([
 
                     delete params.view;
                 }
+                if (params.menu) {
+                    menu.push(params.menu);
+                    delete params.menu;
+                }
                 angular.extend(newParams, params);
                 newParams.resolve = getResolve(newParams.resolve);
 
                 return newParams;
             },
             $get: function(){
-                return {}
+                return {
+                    getVars: function() {
+                        return {
+                            menu: menu
+                        }
+                    }
+                }
             }
         }
     });

@@ -1,6 +1,7 @@
 require.config({
     baseUrl: '/jShop/',
     paths: {
+        jShop: './jShop',
         jquery: '../bower_components/jquery/jquery',
 
         lodash: '../bower_components/lodash/dist/lodash',

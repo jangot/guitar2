@@ -4,6 +4,7 @@ define([
 
     'angularAMD',
 
+    'form/config',
     'common/config',
     'guitars/config'
 

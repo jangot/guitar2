@@ -1,6 +1,6 @@
 define([
 
-    '../jShop',
+    'jShop',
 
     'guitars/view/index/controller'
 

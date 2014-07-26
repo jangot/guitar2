@@ -5,7 +5,10 @@ define([
 ], function(jShop){
     "use strict";
 
-    jShop.controller('GuitarsIndex', function(){
-        console.log('CommonGuitars')
+    jShop.controller('GuitarsIndex', function($scope, Guitars){
+        var guitars = Guitars.query();
+        guitars.$promise.then(function(){
+            $scope.guitars = guitars;
+        })
     });
 });

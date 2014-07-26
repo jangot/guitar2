@@ -5,7 +5,10 @@
     "type": "git",
     "url": "https://github.com/jangot/guitar2.git"
   },
-  "dependencies": {},
+  "dependencies": {
+      "express": "*",
+      "client-http": "*"
+  },
   "devDependencies": {
       "grunt":                   "0.4.2",
       "grunt-contrib-stylus":    "0.13.1",

@@ -6,6 +6,6 @@ define([
     "use strict";
 
     jShop.controller('CommonIndex', function(){
-        console.log('index');
+        console.log('state:controller:index');
     });
 });

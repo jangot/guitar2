@@ -13,10 +13,11 @@ define([
     'common/services/routeConstructor',
     'common/services/menu',
 
+    'common/resources/guitar',
+
     'common/view/body/controller',
     'common/view/index/controller',
     'common/view/404/controller'
-
 
 ], function(jShop, angular) {
     "use strict";

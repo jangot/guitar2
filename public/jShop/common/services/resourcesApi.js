@@ -7,18 +7,22 @@ define([
 ], function(jShop, angular) {
     "use strict";
 
-    jShop.factory('jShopResourcesApi', function(){
+    var PROTOCOL = 'http://';
+    var HOST = '127.0.0.1:5000/';
+    var URL_PREFIX = 'api/';
+
+    jShop.factory('jShopResourcesApi', function($resource){
 
         var DEFAULT_ACTIONS = {
-            get: { method: 'GET' },
+            get: {method: 'GET'},
             save: { method: 'PUT'},
-            query: { method: 'GET'},
+            query:  {method:'GET'},
             remove: { method: 'DELETE'},
             create: { method: 'POST'}
         };
 
         function addUrlPrefix(url) {
-            return url;
+            return '/' + URL_PREFIX + url;
         }
 
         return function(url, paramDefaults, actions) {

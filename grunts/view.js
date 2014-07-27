@@ -32,10 +32,10 @@ module.exports = function(builder) {
                 ]
             }
         })
-        .addConfig('watch', 'stylus', {
-            files: '<%= publicPath %>/**/*.styl',
-            tasks: 'stylus:compile'
-        })
+//        .addConfig('watch', 'stylus', {
+//            files: '<%= publicPath %>/**/*.styl',
+//            tasks: 'stylus:compile'
+//        })
 
         .createTask(TASK_NAME, ['stylus:compile'])
 

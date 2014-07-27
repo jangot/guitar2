@@ -1,8 +1,11 @@
 define([
 
+
     'jShop',
 
     'angularAMD',
+
+    'lodash',
 
     'form/config',
     'common/config',

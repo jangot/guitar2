@@ -3,36 +3,14 @@ module.exports = function(builder) {
     var TASK_NAME = 'server';
 
     builder
-        .addModule('grunt-contrib-connect')
+        .addModule('grunt-bg-shell')
+        .addModule('grunt-reload')
 
-        .addConfig('connect', 'options', {
-            hostname: 'guitar.local',
-            middleware: function(connect, options) {
-                return [
-                    require('connect-livereload')(),
-                    require('grunt-connect-pushstate/lib/utils').pushState(),
-                    connect.static(options.base)
-                ];
-            }
+        .addConfig('bgShell', 'server', {
+            cmd: 'killall -9 node \n node server.js',
+            bg: true
         })
-        .addConfig('connect', 'development', {
-            options: {
-                port: 8009,
-                base: '<%= publicPath %>'
-            }
-        })
-
-
-        .addConfig('watch', 'livereload', {
-            // Here we watch the files the sass task will compile to
-            // These files are sent to the live reload server after sass compiles to them
-            options: {
-                livereload: true
-            },
-            files: ['<%= publicPath %>/../compile/**/*']
-        })
-
-        .createTask(TASK_NAME, ['connect:development'])
+        .createTask(TASK_NAME, ['bgShell:server']);
 
     return TASK_NAME;
 }

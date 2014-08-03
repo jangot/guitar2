@@ -8,6 +8,7 @@ var dataTypes = ['guitars', 'brands', 'types'];
 
 module.exports = function(req, res, next) {
     "use strict";
+
     var actionType = req.param('_action');
 
     var method = actionType || req.method.toLowerCase();

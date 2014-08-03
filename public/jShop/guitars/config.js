@@ -4,7 +4,8 @@ define([
 
     'guitars/resources/guitar',
 
-    'guitars/view/index/controller'
+    'guitars/view/index/controller',
+    'guitars/view/add/controller'
 
 ], function(jShop) {
     "use strict";
@@ -21,6 +22,17 @@ define([
                 menu: {
                     state: 'body.guitars',
                     title: 'Гитары'
+                }
+            })
+        );
+
+        $stateProvider.state(
+            'body.guitarsAdd',
+            routeConstructorProvider.build({
+                url: '/guitars/add',
+                view: 'guitars/add',
+                page: {
+                    title: 'Добавить гитару'
                 }
             })
         );

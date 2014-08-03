@@ -13,7 +13,7 @@ define([
     'common/services/routeConstructor',
     'common/services/menu',
 
-    'common/resources/guitar',
+    'common/resources/stringArea',
 
     'common/view/body/controller',
     'common/view/index/controller',

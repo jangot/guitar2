@@ -3,7 +3,8 @@ var client = new Client();
 
 var dataServer = require('./config');
 
-var dataTypes = ['guitars']
+
+var dataTypes = ['guitars', 'brands', 'types'];
 
 module.exports = function(req, res, next) {
     "use strict";

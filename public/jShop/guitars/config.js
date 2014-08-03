@@ -2,6 +2,8 @@ define([
 
     'jShop',
 
+    'guitars/resources/guitar',
+
     'guitars/view/index/controller'
 
 ], function(jShop) {

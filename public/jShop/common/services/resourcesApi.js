@@ -7,8 +7,6 @@ define([
 ], function(jShop, angular) {
     "use strict";
 
-    var PROTOCOL = 'http://';
-    var HOST = '127.0.0.1:5000/';
     var URL_PREFIX = 'api/';
 
     jShop.factory('jShopResourcesApi', function($resource, $http){

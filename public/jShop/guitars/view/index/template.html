@@ -1,7 +1,19 @@
-<div class="container">
+<div class="container guitar">
     <ul>
         <li ng-repeat="guitar in guitars">
-            {{guitar}}
+            <div>
+                <h4>{{getBrand(guitar.brand_id)}}</h4>
+                <table>
+                    <tr>
+                        <td>Тип</td>
+                        <td>{{getType(guitar.type_id)}}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество струн</td>
+                        <td>{{guitar.strings_number}}</td>
+                    </tr>
+                </table>
+            </div>
         </li>
     </ul>
 </div>

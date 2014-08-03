@@ -12,12 +12,16 @@ module.exports = function(grunt) {
 
         .addModule('grunt-contrib-watch')
 
-        .addConfig('watch', 'common', {
-            files: ['<%= rootPath %>/server/**/*.js', '<%= publicPath %>/**/*.styl'],
-            tasks: [serverTask, viewTask]
+        .addConfig('watch', 'view', {
+            files: ['<%= publicPath %>/**/*.styl'],
+            tasks: [viewTask]
+        })
+        .addConfig('watch', 'server', {
+            files: ['<%= rootPath %>/server/**/*.js'],
+            tasks: [serverTask]
         })
 
-        .createTask('default', [serverTask, viewTask, 'watch:common'])
+        .createTask('default', [serverTask, viewTask, 'watch:view', 'watch:server'])
         .createTask('build', [viewTask])
         .init(grunt);
 }

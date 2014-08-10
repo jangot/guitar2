@@ -8,6 +8,7 @@ define([
     'common/directives/pageTitle/directive',
     'common/directives/breadcrumb/directive',
     'common/directives/footer/directive',
+    'common/directives/jShopNumber/directive',
 
     'common/services/stateData',
     'common/services/routeConstructor',
@@ -21,6 +22,7 @@ define([
 
 ], function(jShop, angular) {
     "use strict";
+
     jShop.config(function($locationProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/404');
 

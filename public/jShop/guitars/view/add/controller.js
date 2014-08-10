@@ -17,8 +17,7 @@ define([
         $scope.strings_number = [4, 5, 6, 7, 8];
 
         $scope.save = function() {
-            var result = Guitars.save($scope.guitar);
-            console.log(result);
+            var result = Guitars.create($scope.guitar);
         }
 
         function loadData() {

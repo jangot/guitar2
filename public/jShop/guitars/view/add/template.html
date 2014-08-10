@@ -26,7 +26,11 @@
         <label class="col-sm-3 control-label">Количество струн</label>
         <div class="col-sm-9 ">
             <div class="radio-inline" ng-repeat="count in strings_number">
-                <input type="radio" value="{{count}}" ng-model="guitar.strings_number"> {{count}}
+                <input type="radio"
+                       name="strings_number"
+                       value="{{count}}"
+                       j-shop-number
+                       ng-model="guitar.strings_number"> {{count}}
             </div>
         </div>
     </div>

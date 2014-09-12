@@ -9,7 +9,8 @@ define([
 
     'form/config',
     'common/config',
-    'guitars/config'
+    'guitars/config',
+    'admin/config'
 
 
 ], function(jShop, angularAMD) {

@@ -10,7 +10,6 @@ define([
     var URL_PREFIX = 'api/';
 
     jShop.factory('jShopResourcesApi', function($resource, $http){
-
         var DEFAULT_ACTIONS = {
             get: {method: 'GET'},
             save: { method: 'PUT'},
@@ -40,6 +39,7 @@ define([
         return function(url, paramDefaults, actions) {
             // Append host and version to url
             url = addUrlPrefix(url);
+            console.log(url)
 
             // Add response transformation for all actions
             actions = angular.extend({}, DEFAULT_ACTIONS, actions);

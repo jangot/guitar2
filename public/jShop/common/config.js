@@ -13,6 +13,7 @@ define([
     'common/services/stateData',
     'common/services/routeConstructor',
     'common/services/menu',
+    'common/services/flashMessage',
 
     'common/resources/stringArea',
 

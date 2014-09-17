@@ -12,8 +12,7 @@ define([
             method: $scope.methods[0],
             url: '/api/brands',
             data: '{"name":"gibson"}',
-            dataType: 'json',
-            headers: {'Content-Type': 'application/json'}
+            dataType: 'json'
         };
 
         $scope.send = function() {
